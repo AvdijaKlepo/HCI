@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hci/BookDetails/book_details.dart';
+import 'package:hci/E-Library/e_library.dart';
 import 'package:hci/NewsPage/newspage.dart';
+import 'package:hci/Settings/settings.dart';
+import 'package:hci/Social/social.dart';
+import 'package:hci/components/label.dart';
+import 'package:hci/utils/style.dart';
+
+import '../RecommendedBooks/rec.dart';
+import '../components/trending.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,9 +40,60 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Stack(
-        children: const [News()],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Label(text: 'News', style: heading1),
+            ),
+            const News(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Label(text: 'Recommended books', style: heading1),
+            ),
+            RecommendedBooks(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Label(text: 'Trending books', style: heading1),
+            ),
+            TrendingBooks()
+          ],
+        ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.orange[100],
+          items: [
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.home_rounded),
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ELibrary())),
+                  icon: const Icon(Icons.book_rounded),
+                ),
+                label: 'Library'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Social())),
+                  icon: const Icon(Icons.people_outline),
+                ),
+                label: 'Social'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Settings())),
+                  icon: const Icon(Icons.settings_outlined),
+                ),
+                label: 'Settings'),
+          ]),
     );
   }
 }
@@ -43,11 +103,11 @@ class News extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200.0,
       width: 500,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 50, 10, 10),
+        padding: const EdgeInsets.fromLTRB(10, 35, 10, 10),
         child: SizedBox(
           width: 250,
           child: InkWell(
@@ -55,8 +115,11 @@ class News extends StatelessWidget {
               child: Container(
                 height: double.infinity,
                 width: 150,
-                child: Image.asset('assets/images/upcoming.jpg'),
                 decoration: BoxDecoration(border: Border.all(width: 0.5)),
+                child: Image.asset(
+                  'assets/images/upcoming.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             onTap: () => Navigator.of(context).push(

@@ -51,7 +51,7 @@ class RegistrationPage extends StatelessWidget {
                       builder: (context) => const HomePage())),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.brown[600]),
-                  child: const Text('Nastavi'),
+                  child: const Text('Registriraj račun'),
                 ),
                 ElevatedButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
