@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hci/RegistracijaLogin/registration.dart';
 
 import '../HomePage/homepage.dart';
-import 'registration.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -52,22 +52,17 @@ class LoginPage extends StatelessWidget {
                           backgroundColor: Colors.brown[600]),
                       child: const Text('Login'),
                     ),
-                  ),
-                  SizedBox(
-                    width: 130,
-                    child: ElevatedButton(
-                      onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: ((context) =>
-                                  const RegistrationPage()))),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.brown[600]),
-                      child: const Text('Registracija'),
-                    ),
                   )
                 ],
               ),
-              const Text('Nemate račun? Registrirajte se na dugme iznad'),
+              InkWell(
+                child: const Text(
+                  'Nemate račun? Registrirajte se',
+                  style: TextStyle(color: Colors.brown),
+                ),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const RegistrationPage())),
+              ),
             ],
           ),
         ));
