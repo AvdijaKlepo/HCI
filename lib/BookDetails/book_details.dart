@@ -1,11 +1,15 @@
 import 'dart:ui';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:hci/components/recommended.dart';
+import 'package:hci/HomePage/homepage.dart';
+import 'package:hci/Reading/read.dart';
 import 'package:hci/utils/style.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import '../E-Library/e_library.dart';
+import '../Settings/settings.dart';
+import '../Social/social.dart';
 
 class BookDetails extends StatefulWidget {
   final String image;
@@ -26,8 +30,8 @@ class BookDetails extends StatefulWidget {
 
 class _BookDetailsState extends State<BookDetails> {
   var rating = 0.0;
-  String dropdownvalue = 'Želim čitati';
-  var items = ['Želim čitati', 'Trenutno čitam', 'Pročitano'];
+  String? selectedValue;
+  final List<String> items = ['Želim čitati', 'Trenutno čitam', 'Pročitano'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,13 +109,13 @@ class _BookDetailsState extends State<BookDetails> {
               widget.author,
               style: heading4,
             ),
-            Divider(
+            const Divider(
               thickness: 1,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 18.0),
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.star),
                   Icon(Icons.star),
                   Icon(Icons.star),
@@ -123,70 +127,58 @@ class _BookDetailsState extends State<BookDetails> {
                 ],
               ),
             ),
-            Divider(
+            const Divider(
               thickness: 1,
             ),
             Container(
-              child: DropdownButton(
-                  dropdownColor: Colors.orange[50],
-                  style: TextStyle(color: black),
-                  value: dropdownvalue,
-                  icon: Icon(Icons.arrow_drop_down),
-                  items: items.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      dropdownvalue = newValue!;
-                    });
-                  }),
-              color: Colors.orange[100],
-              height: 40,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown,
+                ),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Read(image: widget.image))),
+                child: Text('Dodaj u biblioteku'),
+              ),
             ),
             SizedBox(
               height: xsmall,
             ),
-            Text('Ostavi recenziju'),
+            const Text('Ostavi recenziju'),
             RatingBar.builder(
               initialRating: 3,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => const Icon(
                 Icons.star,
                 color: Colors.amber,
               ),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
+              onRatingUpdate: (rating) {},
             ),
             SizedBox(
               height: medium,
             ),
-            Divider(
+            const Divider(
               thickness: 1,
             ),
             Text(
               'Opis knjige',
               style: heading4,
             ),
-            Divider(
+            const Divider(
               thickness: 0.5,
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
               child: Text(widget.price),
             ),
-            Divider(
+            const Divider(
               thickness: 1,
             ),
-            Text('Broj stranica'),
-            Divider(
+            const Text('Broj stranica'),
+            const Divider(
               thickness: 1,
             ),
             Padding(
@@ -202,85 +194,119 @@ class _BookDetailsState extends State<BookDetails> {
               thickness: 1,
               color: black,
             ),
-            Text('Rating od do  |  Broj Ratinga'),
+            const Text('Rating od do  |  Broj Ratinga'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
                 LinearPercentIndicator(
                   width: 150,
                   percent: 0.9,
                 ),
-                Text('81%')
+                const Text('81%')
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star_outline),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
                   percent: 0.5,
                 ),
-                Text('51%')
+                const Text('51%')
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
                   percent: 0.3,
                 ),
-                Text('31%')
+                const Text('31%')
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
                   percent: 0.2,
                 ),
-                Text('11%')
+                const Text('11%')
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
-                Icon(Icons.star_outline),
+                const Icon(Icons.star),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
+                const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
                   percent: 0.1,
                 ),
-                Text('11%')
+                const Text('11%')
               ],
             ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.brown,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.orange[100],
+          items: [
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage())),
+                  icon: const Icon(Icons.home_rounded),
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ELibrary())),
+                  icon: const Icon(Icons.book_rounded),
+                ),
+                label: 'Library'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Social())),
+                  icon: const Icon(Icons.people_outline),
+                ),
+                label: 'Social'),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Settings())),
+                  icon: const Icon(Icons.settings_outlined),
+                ),
+                label: 'Settings'),
+          ]),
     );
   }
 }

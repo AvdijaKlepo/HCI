@@ -1,6 +1,7 @@
 // ignore: implementation_imports
 import 'package:flutter/material.dart';
 import 'package:hci/HomePage/homepage.dart';
+import 'package:hci/Reading/read.dart';
 import 'package:hci/Settings/settings.dart';
 import 'package:hci/Social/social.dart';
 import 'package:hci/utils/style.dart';
@@ -77,17 +78,19 @@ class ELibrary extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: black,
-                      borderRadius: BorderRadius.circular(26),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/darktower3.jpg'),
-                          fit: BoxFit.cover),
+                  child: InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: black,
+                        borderRadius: BorderRadius.circular(26),
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/darktower3.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                      width: 200,
+                      height: 250,
+                      margin: EdgeInsets.only(right: medium),
                     ),
-                    width: 200,
-                    height: 250,
-                    margin: EdgeInsets.only(right: medium),
                   ),
                 ),
                 Padding(
@@ -119,7 +122,7 @@ class ELibrary extends StatelessWidget {
                       color: black,
                       borderRadius: BorderRadius.circular(26),
                       image: const DecorationImage(
-                          image: AssetImage('assets/images/darktower3.jpg'),
+                          image: AssetImage('assets/images/darktower2.jpg'),
                           fit: BoxFit.cover),
                     ),
                     width: 200,
@@ -156,7 +159,7 @@ class ELibrary extends StatelessWidget {
                       color: black,
                       borderRadius: BorderRadius.circular(26),
                       image: const DecorationImage(
-                          image: AssetImage('assets/images/darktower3.jpg'),
+                          image: AssetImage('assets/images/darktower4.jpg'),
                           fit: BoxFit.cover),
                     ),
                     width: 200,

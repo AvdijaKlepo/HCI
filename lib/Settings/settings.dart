@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci/HomePage/homepage.dart';
 import 'package:hci/RegistracijaLogin/login.dart';
 import 'package:hci/utils/style.dart';
 
@@ -41,7 +42,8 @@ class Settings extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
                 icon: IconButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage())),
                   icon: const Icon(Icons.home_rounded),
                 ),
                 label: 'Home'),
