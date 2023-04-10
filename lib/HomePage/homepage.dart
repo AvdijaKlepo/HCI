@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hci/BookDetails/book_details.dart';
 import 'package:hci/E-Library/e_library.dart';
 import 'package:hci/NewsPage/newspage.dart';
 import 'package:hci/Settings/settings.dart';
@@ -8,7 +7,7 @@ import 'package:hci/components/label.dart';
 import 'package:hci/utils/style.dart';
 
 import '../RecommendedBooks/rec.dart';
-import '../components/trending.dart';
+import '../TrendingBooks/trending.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

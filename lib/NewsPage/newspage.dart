@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/style.dart';
+
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
 
@@ -72,14 +74,19 @@ class NewsPage extends StatelessWidget {
                   child: Column(
                     children: [
                       const Text('The Purloined Letter'),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(26),
-                            image: const DecorationImage(
-                                image:
-                                    AssetImage('assets/images/darktower3.jpg'),
-                                fit: BoxFit.cover)),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: black,
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/purloinedletter.jpg'),
+                                  fit: BoxFit.fill)),
+                          width: 170,
+                          height: 170,
+                        ),
                       ),
                       ElevatedButton(
                         onPressed: () {},
@@ -94,13 +101,18 @@ class NewsPage extends StatelessWidget {
                 Column(
                   children: [
                     const Text('The Hound of the Baskervilles'),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(26),
-                          image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/images/darktower3.jpg'))),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/sherlock.jpg'),
+                                fit: BoxFit.fill)),
+                        width: 170,
+                        height: 170,
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {},
