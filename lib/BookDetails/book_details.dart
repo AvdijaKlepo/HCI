@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:hci/Basket/basket.dart';
 import 'package:hci/HomePage/homepage.dart';
 import 'package:hci/Reading/read.dart';
 import 'package:hci/utils/style.dart';
@@ -16,13 +17,15 @@ class BookDetails extends StatefulWidget {
   final String author;
   final String price;
   final String pageCount;
+  final String series;
   const BookDetails(
       {required this.image,
       required this.name,
       required this.author,
       required this.price,
       required this.pageCount,
-      super.key});
+      super.key,
+      required this.series});
 
   @override
   State<BookDetails> createState() => _BookDetailsState();
@@ -102,7 +105,7 @@ class _BookDetailsState extends State<BookDetails> {
               ),
             ),
             Text(
-              'The Dark Tower',
+              widget.series,
               style: heading3,
             ),
             Text(
@@ -130,13 +133,36 @@ class _BookDetailsState extends State<BookDetails> {
             const Divider(
               thickness: 1,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.brown,
-              ),
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Read(image: widget.image))),
-              child: const Text('Dodaj u biblioteku'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown,
+                  ),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Read(image: widget.image))),
+                  child: const Text('Dodaj u biblioteku'),
+                ),
+                SizedBox(
+                  width: medium,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.brown,
+                  ),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Basket(
+                            author: widget.author,
+                            image: widget.image,
+                            name: widget.name,
+                            pageCount: widget.pageCount,
+                            price: widget.price,
+                            series: widget.series,
+                          ))),
+                  child: const Text('Kupi knjigu'),
+                ),
+              ],
             ),
             SizedBox(
               height: xsmall,

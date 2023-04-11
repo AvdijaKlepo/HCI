@@ -205,8 +205,8 @@ class ELibrary extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
                 icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage())),
                   icon: const Icon(Icons.home_rounded),
                 ),
                 label: 'Naslovna'),

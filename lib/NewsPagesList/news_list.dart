@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../utils/style.dart';
 
@@ -12,6 +10,7 @@ class NewsList extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.orange[50],
       appBar: AppBar(
+        foregroundColor: black,
         backgroundColor: Colors.orange[100],
         title: SizedBox(
           width: double.infinity,
@@ -34,109 +33,169 @@ class NewsList extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Vijesti iz svijeta fikcije i pathfindera',
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: medium,
+              ),
+              Center(
+                child: Text(
+                  'Vijesti iz svijeta fikcije i pathfindera',
+                  style: heading1,
+                ),
+              ),
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
+              ),
+              Text(
+                'Nadolazeća izdanja',
                 style: heading1,
               ),
-            ),
-            Divider(
-              color: black,
-              endIndent: 100,
-              indent: 100,
-              thickness: 1,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/upcoming.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/upcoming.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
               ),
-            ),
-            SizedBox(
-              height: xsmall,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/n1.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
               ),
-            ),
-            SizedBox(
-              height: xsmall,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/n2.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              SizedBox(
+                height: xsmall,
               ),
-            ),
-            SizedBox(
-              height: xsmall,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/n3.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              Text(
+                'Najpopularniji žanrovi danas',
+                style: heading1,
               ),
-            ),
-            SizedBox(
-              height: xsmall,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/n4.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/n1.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
               ),
-            ),
-            SizedBox(
-              height: xsmall,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: black,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/n5.jpg'),
-                    )),
-                width: double.infinity,
-                height: 200,
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
               ),
-            ),
-          ],
+              Text(
+                'Avanture sa mora',
+                style: heading1,
+              ),
+              SizedBox(
+                height: xsmall,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/n2.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
+              ),
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
+              ),
+              Text(
+                'Ljubav u zraku',
+                style: heading1,
+              ),
+              SizedBox(
+                height: xsmall,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/n3.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
+              ),
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
+              ),
+              Text(
+                'Politički trileri',
+                style: heading1,
+              ),
+              SizedBox(
+                height: xsmall,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/n4.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
+              ),
+              Divider(
+                color: black,
+                endIndent: 100,
+                indent: 100,
+                thickness: 1,
+              ),
+              Text(
+                'Misterije sa zapada',
+                style: heading1,
+              ),
+              SizedBox(
+                height: xsmall,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: black,
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/n5.jpg'),
+                      )),
+                  width: double.infinity,
+                  height: 200,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

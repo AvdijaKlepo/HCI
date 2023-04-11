@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:hci/BookDetails/book_details.dart';
 
 import '../utils/style.dart';
@@ -11,6 +9,7 @@ String price =
     'In the first book of this series, Stephen King introduces readers to one of his most enigmatic heroes, Roland of Gilead, The Last Gunslinger';
 String autor = 'Stephen King';
 String pageCount = '231';
+String series = 'The Dark Tower';
 
 class BookList extends StatelessWidget {
   final String text;
@@ -68,7 +67,7 @@ class BookList extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(26),
                           color: black,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             fit: BoxFit.fill,
                             image: AssetImage(
                               'assets/images/darktower1.jpg',
@@ -79,11 +78,13 @@ class BookList extends StatelessWidget {
                     ),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => BookDetails(
-                            image: image,
-                            name: name,
-                            author: autor,
-                            price: price,
-                            pageCount: pageCount))),
+                              image: image,
+                              name: name,
+                              author: autor,
+                              price: price,
+                              pageCount: pageCount,
+                              series: series,
+                            ))),
                   ),
                 ),
                 SizedBox(
@@ -95,7 +96,7 @@ class BookList extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(26),
                         color: black,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/darktower2.jpg'),
                         )),
@@ -116,7 +117,7 @@ class BookList extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(26),
                         color: black,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/darktower3.jpg'),
                         )),
@@ -133,7 +134,7 @@ class BookList extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(26),
                         color: black,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/darktower4.jpg'),
                         )),
@@ -154,7 +155,7 @@ class BookList extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(26),
                         color: black,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/hussite1.jpg'),
                         )),
@@ -171,7 +172,7 @@ class BookList extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(26),
                         color: black,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.fill,
                           image: AssetImage('assets/images/hussite2.jpg'),
                         )),

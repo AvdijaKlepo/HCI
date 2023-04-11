@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hci/HomePage/homepage.dart';
 
+import '../utils/style.dart';
 import 'login.dart';
 
 class RegistrationPage extends StatelessWidget {
@@ -23,6 +24,9 @@ class RegistrationPage extends StatelessWidget {
               'Registracija',
               style: TextStyle(fontSize: 20),
             ),
+            SizedBox(
+              height: xsmall,
+            ),
             const SizedBox(
               width: 290,
               child: TextField(
@@ -31,6 +35,9 @@ class RegistrationPage extends StatelessWidget {
                   labelText: 'Email',
                 ),
               ),
+            ),
+            SizedBox(
+              height: xsmall,
             ),
             const SizedBox(
               width: 290,
@@ -43,7 +50,7 @@ class RegistrationPage extends StatelessWidget {
               ),
             ),
             const Divider(),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
@@ -53,12 +60,13 @@ class RegistrationPage extends StatelessWidget {
                       backgroundColor: Colors.brown[600]),
                   child: const Text('Registriraj račun'),
                 ),
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                InkWell(
+                  child: Text(
+                    'Već imate račun? Logirajte se ovde',
+                    style: p2,
+                  ),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const LoginPage())),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown[600]),
-                  child: const Text('Nazad na login'),
                 )
               ],
             )
