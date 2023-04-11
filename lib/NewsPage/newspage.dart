@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../E-Library/e_library.dart';
+import '../Reading/read.dart';
+import '../Settings/settings.dart';
+import '../Social/social.dart';
 import '../utils/style.dart';
 
 class NewsPage extends StatelessWidget {
@@ -80,16 +84,20 @@ class NewsPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: black,
                               borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
+                              image: const DecorationImage(
                                   image: AssetImage(
                                       'assets/images/purloinedletter.jpg'),
                                   fit: BoxFit.fill)),
                           width: 170,
-                          height: 170,
+                          height: 200,
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const Read(
+                                    image:
+                                        'assets/images/purloinedletter.jpg'))),
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.brown)),
@@ -107,15 +115,18 @@ class NewsPage extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: black,
                             borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage('assets/images/sherlock.jpg'),
                                 fit: BoxFit.fill)),
                         width: 170,
-                        height: 170,
+                        height: 200,
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const Read(
+                                  image: 'assets/images/sherlock.jpg'))),
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(Colors.brown)),
@@ -129,19 +140,38 @@ class NewsPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.brown,
+          currentIndex: 0,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
-          selectedItemColor: Colors.brown,
-          landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: 'Home'),
+                icon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.home_rounded),
+                ),
+                label: 'Home'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.book_outlined), label: 'E-Library'),
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ELibrary())),
+                  icon: const Icon(Icons.menu_book_outlined),
+                ),
+                label: 'Library'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.people_outline), label: 'Social'),
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Social())),
+                  icon: const Icon(Icons.people_outline),
+                ),
+                label: 'Social'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined), label: 'Settings'),
+                icon: IconButton(
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Settings())),
+                  icon: const Icon(Icons.settings_outlined),
+                ),
+                label: 'Settings'),
           ]),
     );
   }

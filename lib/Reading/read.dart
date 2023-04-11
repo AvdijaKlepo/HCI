@@ -3,7 +3,7 @@ import 'package:hci/utils/style.dart';
 
 class Read extends StatelessWidget {
   final String image;
-  Read({required this.image, super.key});
+  const Read({required this.image, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class Read extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: black,
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('assets/images/darktower4.jpg'),
                             fit: BoxFit.fill)),
                     width: 170,
@@ -57,7 +57,7 @@ class Read extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: black,
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('assets/images/darktower2.jpg'),
                             fit: BoxFit.fill)),
                     width: 170,
@@ -73,7 +73,7 @@ class Read extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: black,
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('assets/images/hussite3.jpg'),
                             fit: BoxFit.fill)),
                     width: 170,
@@ -90,7 +90,7 @@ class Read extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: black,
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image:
                                 AssetImage('assets/images/purloinedletter.jpg'),
                             fit: BoxFit.fill)),
@@ -107,7 +107,7 @@ class Read extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: black,
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage('assets/images/sherlock.jpg'),
                             fit: BoxFit.fill)),
                     width: 170,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hci/BookList/book_list.dart';
 import 'package:hci/E-Library/e_library.dart';
 import 'package:hci/NewsPage/newspage.dart';
+import 'package:hci/NewsPagesList/news_list.dart';
 import 'package:hci/Settings/settings.dart';
 import 'package:hci/Social/social.dart';
 import 'package:hci/components/label.dart';
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
                 contentPadding: const EdgeInsets.all(0),
                 filled: true,
                 fillColor: Colors.white,
-                hintText: 'Title, author or ISBN',
+                hintText: 'Naslov, autor ili ISBN',
                 prefixIcon: const Icon(Icons.search_outlined),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -43,24 +45,44 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Label(text: 'News', style: heading1),
+              padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 0),
+              child: InkWell(
+                child: Label(text: 'Članci', style: heading1),
+                onTap: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => NewsList())),
+              ),
             ),
-            const News(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Label(text: 'Recommended books', style: heading1),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: News(),
+            ),
+            InkWell(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Label(text: 'Preporučeno', style: heading1),
+              ),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => BookList(
+                        text: 'Knjige preporučene vašim pretraživanjima',
+                      ))),
             ),
             RecommendedBooks(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Label(text: 'Trending books', style: heading1),
+              child: InkWell(
+                child: Label(text: 'Popularno', style: heading1),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => BookList(
+                          text: 'Knjige koje su trenutno popularne',
+                        ))),
+              ),
             ),
             TrendingBooks()
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.black,
           currentIndex: 0,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
@@ -70,28 +92,28 @@ class HomePage extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(Icons.home_rounded),
                 ),
-                label: 'Home'),
+                label: 'Naslovna'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.book_rounded),
+                  icon: const Icon(Icons.menu_book_outlined),
                 ),
-                label: 'Library'),
+                label: 'E-Biblioteka'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const Social())),
                   icon: const Icon(Icons.people_outline),
                 ),
-                label: 'Social'),
+                label: 'Mreža'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const Settings())),
                   icon: const Icon(Icons.settings_outlined),
                 ),
-                label: 'Settings'),
+                label: 'Postavke'),
           ]),
     );
   }

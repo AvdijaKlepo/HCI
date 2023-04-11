@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hci/HomePage/homepage.dart';
@@ -16,12 +15,13 @@ class BookDetails extends StatefulWidget {
   final String name;
   final String author;
   final String price;
-
+  final String pageCount;
   const BookDetails(
       {required this.image,
       required this.name,
       required this.author,
       required this.price,
+      required this.pageCount,
       super.key});
 
   @override
@@ -47,7 +47,7 @@ class _BookDetailsState extends State<BookDetails> {
                 contentPadding: const EdgeInsets.all(0),
                 filled: true,
                 fillColor: Colors.white,
-                hintText: 'Title, author or ISBN',
+                hintText: 'Naslov, autor ili ISBN',
                 prefixIcon: const Icon(Icons.search_outlined),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -130,15 +130,13 @@ class _BookDetailsState extends State<BookDetails> {
             const Divider(
               thickness: 1,
             ),
-            Container(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
-                ),
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => Read(image: widget.image))),
-                child: Text('Dodaj u biblioteku'),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.brown,
               ),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Read(image: widget.image))),
+              child: const Text('Dodaj u biblioteku'),
             ),
             SizedBox(
               height: xsmall,
@@ -153,7 +151,7 @@ class _BookDetailsState extends State<BookDetails> {
               itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
               itemBuilder: (context, _) => const Icon(
                 Icons.star,
-                color: Colors.amber,
+                color: Colors.black,
               ),
               onRatingUpdate: (rating) {},
             ),
@@ -177,14 +175,14 @@ class _BookDetailsState extends State<BookDetails> {
             const Divider(
               thickness: 1,
             ),
-            const Text('Broj stranica'),
+            Text(widget.pageCount),
             const Divider(
               thickness: 1,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'RATING DETAILS',
+                'RECENZIJE',
                 style: heading3,
               ),
             ),
@@ -194,7 +192,7 @@ class _BookDetailsState extends State<BookDetails> {
               thickness: 1,
               color: black,
             ),
-            const Text('Rating od do  |  Broj Ratinga'),
+            const Text('Rating |  Broj Ratinga'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -207,7 +205,7 @@ class _BookDetailsState extends State<BookDetails> {
                   width: 150,
                   percent: 0.9,
                 ),
-                const Text('81%')
+                const Text('33%')
               ],
             ),
             Row(
@@ -220,9 +218,9 @@ class _BookDetailsState extends State<BookDetails> {
                 const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
-                  percent: 0.5,
+                  percent: 0.35,
                 ),
-                const Text('51%')
+                const Text('21%')
               ],
             ),
             Row(
@@ -237,7 +235,7 @@ class _BookDetailsState extends State<BookDetails> {
                   width: 150,
                   percent: 0.3,
                 ),
-                const Text('31%')
+                const Text('20%')
               ],
             ),
             Row(
@@ -252,7 +250,7 @@ class _BookDetailsState extends State<BookDetails> {
                   width: 150,
                   percent: 0.2,
                 ),
-                const Text('11%')
+                const Text('13%')
               ],
             ),
             Row(
@@ -274,7 +272,8 @@ class _BookDetailsState extends State<BookDetails> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.brown,
+          currentIndex: 1,
+          selectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
           items: [
@@ -284,28 +283,28 @@ class _BookDetailsState extends State<BookDetails> {
                       builder: (context) => const HomePage())),
                   icon: const Icon(Icons.home_rounded),
                 ),
-                label: 'Home'),
+                label: 'Naslovna'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.book_rounded),
+                  icon: const Icon(Icons.menu_book_outlined),
                 ),
-                label: 'Library'),
+                label: 'E-Bibloteka'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const Social())),
                   icon: const Icon(Icons.people_outline),
                 ),
-                label: 'Social'),
+                label: 'Mreža'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const Settings())),
                   icon: const Icon(Icons.settings_outlined),
                 ),
-                label: 'Settings'),
+                label: 'Postavke'),
           ]),
     );
   }
