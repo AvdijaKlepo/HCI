@@ -10,6 +10,9 @@ String price =
 String autor = 'Stephen King';
 String pageCount = '231';
 String series = 'The Dark Tower';
+String Brating = '3,93';
+String BnRating = '579,459';
+String BnReviews = '22,869';
 
 class BookList extends StatelessWidget {
   final String text;
@@ -22,6 +25,7 @@ class BookList extends StatelessWidget {
       backgroundColor: Colors.orange[50],
       appBar: AppBar(
         backgroundColor: Colors.orange[100],
+        foregroundColor: black,
         title: SizedBox(
           width: double.infinity,
           height: 40,
@@ -74,7 +78,7 @@ class BookList extends StatelessWidget {
                             ),
                           )),
                       width: 170,
-                      height: 200,
+                      height: 250,
                     ),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => BookDetails(
@@ -84,6 +88,9 @@ class BookList extends StatelessWidget {
                               price: price,
                               pageCount: pageCount,
                               series: series,
+                              rating: Brating,
+                              nRatings: BnRating,
+                              nReviews: BnReviews,
                             ))),
                   ),
                 ),
@@ -101,7 +108,7 @@ class BookList extends StatelessWidget {
                           image: AssetImage('assets/images/darktower2.jpg'),
                         )),
                     width: 170,
-                    height: 200,
+                    height: 250,
                   ),
                 ),
               ],
@@ -122,7 +129,7 @@ class BookList extends StatelessWidget {
                           image: AssetImage('assets/images/darktower3.jpg'),
                         )),
                     width: 170,
-                    height: 200,
+                    height: 250,
                   ),
                 ),
                 SizedBox(
@@ -139,7 +146,7 @@ class BookList extends StatelessWidget {
                           image: AssetImage('assets/images/darktower4.jpg'),
                         )),
                     width: 170,
-                    height: 200,
+                    height: 250,
                   ),
                 ),
               ],
@@ -160,7 +167,7 @@ class BookList extends StatelessWidget {
                           image: AssetImage('assets/images/hussite1.jpg'),
                         )),
                     width: 170,
-                    height: 200,
+                    height: 250,
                   ),
                 ),
                 SizedBox(
@@ -177,7 +184,7 @@ class BookList extends StatelessWidget {
                           image: AssetImage('assets/images/hussite2.jpg'),
                         )),
                     width: 170,
-                    height: 200,
+                    height: 250,
                   ),
                 ),
               ],

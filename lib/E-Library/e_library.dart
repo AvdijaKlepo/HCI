@@ -30,7 +30,7 @@ class ELibrary extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   '2023 READING CHALLENGE',
-                  style: heading1,
+                  style: heading2,
                 ),
               ),
             ),
@@ -43,13 +43,19 @@ class ELibrary extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.menu_book_rounded),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: const Icon(Icons.menu_book_rounded),
+                ),
                 SizedBox(
                   width: xsmall,
                 ),
                 Column(
                   children: [
-                    const Text('Pročitali ste 3 od 30 knjiga ove godine.'),
+                    Text(
+                      'Pročitali ste 3 od 30 knjiga ove godine.',
+                      style: p2,
+                    ),
                     SizedBox(
                       height: xsmall,
                     ),
@@ -70,7 +76,10 @@ class ELibrary extends StatelessWidget {
             SizedBox(
               height: medium,
             ),
-            const Text('Vaše police'),
+            Text(
+              'Vaše police',
+              style: heading2,
+            ),
             SizedBox(
               height: medium,
             ),
@@ -79,32 +88,73 @@ class ELibrary extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: black,
-                        borderRadius: BorderRadius.circular(26),
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/darktower3.jpg'),
-                            fit: BoxFit.cover),
+                    child: Stack(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: black,
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: AssetImage('assets/images/darktower3.jpg'),
+                              fit: BoxFit.cover),
+                        ),
+                        width: 200,
+                        height: 250,
+                        margin: EdgeInsets.only(right: medium),
                       ),
-                      width: 200,
-                      height: 250,
-                      margin: EdgeInsets.only(right: medium),
-                    ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower2.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(45.0, 25.0, 0.0, 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower1.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                    ]),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            const Read(image: 'assets/images/darktower3.jpg'))),
+                        builder: (context) => Read(
+                              image: 'assets/images/darktower3.jpg',
+                              text: 'Pročitano',
+                            ))),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 30.0),
+                  padding: const EdgeInsets.only(right: 20.0),
                   child: Column(
                     children: [
-                      const Text('Pročitano'),
-                      SizedBox(
-                        height: medium,
+                      Text(
+                        'Pročitano: ',
+                        style: p2,
                       ),
-                      const Text('3 knjige'),
+                      Text(
+                        '3 knjige',
+                        style: p2,
+                      ),
                     ],
                   ),
                 )
@@ -121,32 +171,105 @@ class ELibrary extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: black,
-                        borderRadius: BorderRadius.circular(26),
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/darktower2.jpg'),
-                            fit: BoxFit.cover),
+                    child: Stack(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: black,
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: AssetImage('assets/images/hussite2.jpg'),
+                              fit: BoxFit.cover),
+                        ),
+                        width: 200,
+                        height: 250,
+                        margin: EdgeInsets.only(right: medium),
                       ),
-                      width: 200,
-                      height: 250,
-                      margin: EdgeInsets.only(right: medium),
-                    ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image: AssetImage('assets/images/hussite3.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(45.0, 10.0, 0.0, 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower1.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower2.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(45.0, 25.0, 0.0, 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image: AssetImage('assets/images/hussite1.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                    ]),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            const Read(image: 'assets/images/darktower2.jpg'))),
+                        builder: (context) => const Read(
+                              image: 'assets/images/darktower2.jpg',
+                              text: 'Trenutno čitam',
+                            ))),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 30.0),
+                  padding: const EdgeInsets.only(right: 0),
                   child: Column(
                     children: [
-                      const Text('Trenutno čitam'),
-                      SizedBox(
-                        height: medium,
+                      Text(
+                        'Trenutno čitam:',
+                        style: p2,
                       ),
-                      const Text('3 knjige'),
+                      Text(
+                        '6 knjige',
+                        style: p2,
+                      ),
                     ],
                   ),
                 )
@@ -163,32 +286,107 @@ class ELibrary extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: black,
-                        borderRadius: BorderRadius.circular(26),
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/darktower4.jpg'),
-                            fit: BoxFit.cover),
+                    child: Stack(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: black,
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: AssetImage('assets/images/darktower4.jpg'),
+                              fit: BoxFit.cover),
+                        ),
+                        width: 200,
+                        height: 250,
+                        margin: EdgeInsets.only(right: medium),
                       ),
-                      width: 200,
-                      height: 250,
-                      margin: EdgeInsets.only(right: medium),
-                    ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower2.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(45.0, 10.0, 0.0, 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower1.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower2.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(45.0, 25.0, 0.0, 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: black,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage('assets/images/darktower1.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                          width: 200,
+                          height: 250,
+                          margin: EdgeInsets.only(right: medium),
+                        ),
+                      ),
+                    ]),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            const Read(image: 'assets/images/darktower4.jpg'))),
+                        builder: (context) => const Read(
+                              image: 'assets/images/darktower4.jpg',
+                              text: 'Želim da čitam',
+                            ))),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 30.0),
+                  padding: const EdgeInsets.only(right: 0),
                   child: Column(
                     children: [
-                      const Text('Želim da čitam'),
-                      SizedBox(
-                        height: medium,
+                      Text(
+                        'Želim da čitam: ',
+                        style: p2,
                       ),
-                      const Text('3 knjige'),
+                      Text(
+                        '13 knjige',
+                        style: p2,
+                      ),
                     ],
                   ),
                 )
@@ -198,37 +396,59 @@ class ELibrary extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          selectedLabelStyle: p2,
+          unselectedLabelStyle: p2,
           selectedItemColor: Colors.black,
           currentIndex: 1,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
-                  icon: const Icon(Icons.home_rounded),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
+                    icon: const Icon(Icons.home_rounded),
+                  ),
                 ),
                 label: 'Naslovna'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.menu_book_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const ELibrary())),
+                    icon: const Icon(Icons.menu_book_outlined),
+                  ),
                 ),
                 label: 'E-Biblioteka'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Social())),
-                  icon: const Icon(Icons.people_outline),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Social())),
+                    icon: const Icon(Icons.people_outline),
+                  ),
                 ),
                 label: 'Mreža'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Settings())),
-                  icon: const Icon(Icons.settings_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Settings())),
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
                 label: 'Postavke'),
           ]),

@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hci/Basket/basket.dart';
+
 import 'package:hci/HomePage/homepage.dart';
 import 'package:hci/Reading/read.dart';
 import 'package:hci/utils/style.dart';
@@ -18,14 +19,22 @@ class BookDetails extends StatefulWidget {
   final String price;
   final String pageCount;
   final String series;
-  const BookDetails(
-      {required this.image,
-      required this.name,
-      required this.author,
-      required this.price,
-      required this.pageCount,
-      super.key,
-      required this.series});
+  final String rating;
+  final String nRatings;
+  final String nReviews;
+
+  const BookDetails({
+    required this.image,
+    required this.name,
+    required this.author,
+    required this.price,
+    required this.pageCount,
+    required this.series,
+    required this.rating,
+    required this.nRatings,
+    required this.nReviews,
+    super.key,
+  });
 
   @override
   State<BookDetails> createState() => _BookDetailsState();
@@ -35,10 +44,12 @@ class _BookDetailsState extends State<BookDetails> {
   var rating = 0.0;
   String? selectedValue;
   final List<String> items = ['Želim čitati', 'Trenutno čitam', 'Pročitano'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: black,
         automaticallyImplyLeading: true,
         backgroundColor: Colors.orange[100],
         title: SizedBox(
@@ -116,17 +127,26 @@ class _BookDetailsState extends State<BookDetails> {
               thickness: 1,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0),
+              padding: const EdgeInsets.only(left: 65.0),
               child: Row(
-                children: const [
+                children: [
                   Icon(Icons.star),
                   Icon(Icons.star),
                   Icon(Icons.star),
                   Icon(Icons.star),
                   Icon(Icons.star),
-                  Text(' | 4.65'),
-                  Text(' | 422,054 ratings'),
-                  Text(' | 24,414 reviews')
+                  Text(
+                    ' | ${widget.rating}',
+                    style: p2,
+                  ),
+                  Text(
+                    ' | ${widget.nRatings}',
+                    style: p2,
+                  ),
+                  Text(
+                    ' | ${widget.nReviews}',
+                    style: p2,
+                  )
                 ],
               ),
             ),
@@ -141,8 +161,11 @@ class _BookDetailsState extends State<BookDetails> {
                     backgroundColor: Colors.brown,
                   ),
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Read(image: widget.image))),
-                  child: const Text('Dodaj u biblioteku'),
+                      builder: (context) => Read(
+                            image: widget.image,
+                            text: 'Pročitano',
+                          ))),
+                  child: Text('Dodaj u biblioteku', style: p3),
                 ),
                 SizedBox(
                   width: medium,
@@ -159,49 +182,69 @@ class _BookDetailsState extends State<BookDetails> {
                             pageCount: widget.pageCount,
                             price: widget.price,
                             series: widget.series,
+                            rating: widget.rating,
+                            nRating: widget.nRatings,
                           ))),
-                  child: const Text('Kupi knjigu'),
+                  child: Text(
+                    'Kupi knjigu',
+                    style: p3,
+                  ),
                 ),
               ],
             ),
             SizedBox(
               height: xsmall,
             ),
-            const Text('Ostavi recenziju'),
-            RatingBar.builder(
-              initialRating: 3,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Colors.black,
-              ),
-              onRatingUpdate: (rating) {},
+            Text(
+              'Broj stranica: ',
+              style: p2,
+            ),
+            Text(
+              widget.pageCount,
+              style: p2,
             ),
             SizedBox(
-              height: medium,
+              height: xsmall,
             ),
             const Divider(
               thickness: 1,
             ),
             Text(
               'Opis knjige',
-              style: heading4,
-            ),
-            const Divider(
-              thickness: 0.5,
+              style: p2,
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
-              child: Text(widget.price),
+              child: Text(
+                widget.price,
+                style: p2,
+              ),
             ),
             const Divider(
               thickness: 1,
             ),
-            Text(widget.pageCount),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Ostavi recenziju',
+                  style: p2,
+                ),
+                RatingBar.builder(
+                  initialRating: 3,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.black,
+                  ),
+                  onRatingUpdate: (rating) {},
+                ),
+              ],
+            ),
             const Divider(
               thickness: 1,
             ),
@@ -209,7 +252,7 @@ class _BookDetailsState extends State<BookDetails> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'RECENZIJE',
-                style: heading3,
+                style: heading1,
               ),
             ),
             Divider(
@@ -218,9 +261,9 @@ class _BookDetailsState extends State<BookDetails> {
               thickness: 1,
               color: black,
             ),
-            const Text('Rating |  Broj Ratinga'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Icon(Icons.star),
                 const Icon(Icons.star),
@@ -229,13 +272,17 @@ class _BookDetailsState extends State<BookDetails> {
                 const Icon(Icons.star),
                 LinearPercentIndicator(
                   width: 150,
-                  percent: 0.9,
+                  percent: 0.3,
                 ),
-                const Text('33%')
+                Text(
+                  '20%',
+                  style: p2,
+                )
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Icon(Icons.star),
                 const Icon(Icons.star),
@@ -244,9 +291,12 @@ class _BookDetailsState extends State<BookDetails> {
                 const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
-                  percent: 0.35,
+                  percent: 0.3,
                 ),
-                const Text('21%')
+                Text(
+                  '20%',
+                  style: p2,
+                )
               ],
             ),
             Row(
@@ -261,7 +311,10 @@ class _BookDetailsState extends State<BookDetails> {
                   width: 150,
                   percent: 0.3,
                 ),
-                const Text('20%')
+                Text(
+                  '20%',
+                  style: p2,
+                )
               ],
             ),
             Row(
@@ -274,12 +327,16 @@ class _BookDetailsState extends State<BookDetails> {
                 const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
-                  percent: 0.2,
+                  percent: 0.3,
                 ),
-                const Text('13%')
+                Text(
+                  '20%',
+                  style: p2,
+                )
               ],
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(Icons.star),
@@ -289,46 +346,74 @@ class _BookDetailsState extends State<BookDetails> {
                 const Icon(Icons.star_outline),
                 LinearPercentIndicator(
                   width: 150,
-                  percent: 0.1,
+                  percent: 0.3,
                 ),
-                const Text('11%')
+                Text(
+                  '20%',
+                  style: p2,
+                ),
               ],
+            ),
+            SizedBox(
+              height: medium,
             ),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          unselectedLabelStyle: p2,
+          selectedLabelStyle: p2,
           currentIndex: 1,
           selectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
-                  icon: const Icon(Icons.home_rounded),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
+                    icon: const Icon(Icons.home_rounded),
+                  ),
                 ),
                 label: 'Naslovna'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.menu_book_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const ELibrary())),
+                    icon: const Icon(Icons.menu_book_outlined),
+                  ),
                 ),
                 label: 'E-Bibloteka'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Social())),
-                  icon: const Icon(Icons.people_outline),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Social())),
+                    icon: const Icon(Icons.people_outline),
+                  ),
                 ),
                 label: 'Mreža'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Settings())),
-                  icon: const Icon(Icons.settings_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Settings())),
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
                 label: 'Postavke'),
           ]),

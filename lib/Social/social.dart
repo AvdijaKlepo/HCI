@@ -37,29 +37,30 @@ class Social extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: text,
-                                    borderRadius: BorderRadius.circular(100),
-                                    image: const DecorationImage(
-                                      image: AssetImage('assets/images/n1.jpg'),
-                                    ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: text,
+                                  borderRadius: BorderRadius.circular(100),
+                                  image: const DecorationImage(
+                                    image: AssetImage('assets/images/n1.jpg'),
                                   ),
-                                  height: 50,
-                                  width: 50,
                                 ),
+                                height: 50,
+                                width: 50,
                               ),
-                              const Text(
-                                  'Avdija Klepo je zapratio Adema Drljevića.'),
-                            ],
-                          ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                'Avdija Klepo je zapratio Adema Drljevića.',
+                                style: p2,
+                              ),
+                            ),
+                          ],
                         ),
-                        const Text('8 Lajkova | 8 Komentara'),
                       ],
                     ),
                   ),
@@ -95,13 +96,22 @@ class Social extends StatelessWidget {
                                 width: 50,
                               ),
                             ),
-                            const Text(
-                                'Avdija Klepo je ostavio komentar ispod rezencije.'),
+                            Expanded(
+                              child: Text(
+                                'Avdija Klepo je ostavio komentar ispod rezencije.',
+                                style: p2,
+                              ),
+                            ),
                           ],
                         ),
-                        const Text(
-                            'Odlična recenzija Meho. Svaki dan postaješ efikasniji kritičar.'),
-                        const Text('8 Lajkova | 8 Komentara')
+                        Text(
+                          'Odlična recenzija Meho. Svaki dan postaješ efikasniji kritičar.',
+                          style: p2,
+                        ),
+                        Text(
+                          '8 Lajkova | 8 Komentara',
+                          style: p2,
+                        )
                       ],
                     ),
                   ),
@@ -133,11 +143,13 @@ class Social extends StatelessWidget {
                               width: 50,
                             ),
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Expanded(
-                                child:
-                                    Text('Avdija Klepo je ostavio recenziju')),
+                                child: Text(
+                              'Avdija Klepo je ostavio recenziju',
+                              style: p2,
+                            )),
                           ),
                         ],
                       ),
@@ -161,7 +173,10 @@ class Social extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
-                                const Text('The Gunslinger'),
+                                Text(
+                                  'The Gunslinger',
+                                  style: p2,
+                                ),
                                 Row(
                                   children: const [
                                     Icon(Icons.star),
@@ -171,25 +186,36 @@ class Social extends StatelessWidget {
                                     Icon(Icons.star_border),
                                   ],
                                 ),
-                                const Text('Stephen King'),
+                                Text(
+                                  'Stephen King',
+                                  style: p2,
+                                ),
                                 ElevatedButton(
-                                  onPressed: () => Navigator.of(context).push(
-                                      MaterialPageRoute(
+                                  onPressed: () => Navigator.of(context)
+                                      .push(MaterialPageRoute(
                                           builder: (context) => const Read(
-                                              image:
-                                                  'assets/images/darktower1.jpg'))),
+                                                image:
+                                                    'assets/images/darktower1.jpg',
+                                                text: 'Želim da čitam',
+                                              ))),
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.brown),
-                                  child: const Text('Želim čitati'),
+                                  child: Text(
+                                    'Želim čitati',
+                                    style: p1,
+                                  ),
                                 )
                               ],
                             ),
                           ),
                         ],
                       ),
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.only(right: 220.0),
-                        child: Text('8 Lajkova | 8 Komentara'),
+                        child: Text(
+                          '8 Lajkova | 2 Komentara',
+                          style: p2,
+                        ),
                       ),
                     ],
                   ),
@@ -201,37 +227,59 @@ class Social extends StatelessWidget {
       ),
       backgroundColor: Colors.orange[50],
       bottomNavigationBar: BottomNavigationBar(
+          selectedLabelStyle: p2,
+          unselectedLabelStyle: p2,
           selectedItemColor: Colors.black,
           currentIndex: 2,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
-                  icon: const Icon(Icons.home_rounded),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
+                    icon: const Icon(Icons.home_rounded),
+                  ),
                 ),
                 label: 'Naslovna'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.menu_book_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const ELibrary())),
+                    icon: const Icon(Icons.menu_book_outlined),
+                  ),
                 ),
                 label: 'E-Biblioteka'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Social())),
-                  icon: const Icon(Icons.people_outline),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Social())),
+                    icon: const Icon(Icons.people_outline),
+                  ),
                 ),
                 label: 'Mreža'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Settings())),
-                  icon: const Icon(Icons.settings_outlined),
+                icon: SizedBox(
+                  width: 38,
+                  height: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Settings())),
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
                 label: 'Postavke'),
           ]),

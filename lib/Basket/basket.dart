@@ -9,6 +9,8 @@ class Basket extends StatelessWidget {
   final String author;
   final String pageCount;
   final String series;
+  final String rating;
+  final String nRating;
   const Basket(
       {super.key,
       required this.image,
@@ -16,11 +18,14 @@ class Basket extends StatelessWidget {
       required this.price,
       required this.author,
       required this.pageCount,
-      required this.series});
+      required this.series,
+      required this.rating,
+      required this.nRating});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange[50],
       appBar: AppBar(
         title: const Text('Košara'),
         backgroundColor: Colors.orange[100],
@@ -45,14 +50,14 @@ class Basket extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              children: const [
+              children: [
                 Icon(Icons.star),
                 Icon(Icons.star),
                 Icon(Icons.star),
                 Icon(Icons.star),
                 Icon(Icons.star),
-                Text(' | 4.65'),
-                Text(' | 422,054 ratings'),
+                Text(' | $rating'),
+                Text(' | $nRating'),
               ],
             ),
           ),
@@ -60,7 +65,7 @@ class Basket extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Najbolje prodavana knjiga u historijskoj fikciji',
-              style: p1,
+              style: p2,
             ),
           ),
           Center(
@@ -72,7 +77,7 @@ class Basket extends StatelessWidget {
                 ),
               ),
               width: 300,
-              height: 300,
+              height: 350,
             ),
           ),
           Row(
@@ -89,6 +94,8 @@ class Basket extends StatelessWidget {
                                 price: price,
                                 author: author,
                                 pageCount: pageCount,
+                                rating: rating,
+                                nRating: nRating,
                                 series: series))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
@@ -100,15 +107,18 @@ class Basket extends StatelessWidget {
               SizedBox(
                 width: 100,
                 child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Basket2(
-                                image: image,
-                                name: name,
-                                price: price,
-                                author: author,
-                                pageCount: pageCount,
-                                series: series))),
+                                  image: image,
+                                  name: name,
+                                  price: price,
+                                  author: author,
+                                  pageCount: pageCount,
+                                  series: series,
+                                  rating: rating,
+                                  nRating: nRating,
+                                ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                     child: const Text('Audiobook')),
@@ -121,15 +131,18 @@ class Basket extends StatelessWidget {
               SizedBox(
                 width: 100,
                 child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Basket2(
-                                image: image,
-                                name: name,
-                                price: price,
-                                author: author,
-                                pageCount: pageCount,
-                                series: series))),
+                                  image: image,
+                                  name: name,
+                                  price: price,
+                                  author: author,
+                                  pageCount: pageCount,
+                                  series: series,
+                                  rating: rating,
+                                  nRating: nRating,
+                                ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                     child: const Text('Hardcover')),
@@ -140,15 +153,18 @@ class Basket extends StatelessWidget {
               SizedBox(
                   width: 100,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Basket2(
-                                image: image,
-                                name: name,
-                                price: price,
-                                author: author,
-                                pageCount: pageCount,
-                                series: series))),
+                                  image: image,
+                                  name: name,
+                                  price: price,
+                                  author: author,
+                                  pageCount: pageCount,
+                                  series: series,
+                                  rating: rating,
+                                  nRating: nRating,
+                                ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                     child: const Text('Paperback'),
@@ -159,6 +175,14 @@ class Basket extends StatelessWidget {
             endIndent: 15,
             indent: 15,
             color: black,
+          ),
+          Center(
+              child: Text(
+            'Čitaoci $author često čitaju i ove knjige',
+            style: p2,
+          )),
+          SizedBox(
+            height: medium,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -172,7 +196,7 @@ class Basket extends StatelessWidget {
                   ),
                 ),
                 width: 150,
-                height: 150,
+                height: 200,
               ),
               SizedBox(
                 width: small,
@@ -186,7 +210,7 @@ class Basket extends StatelessWidget {
                   ),
                 ),
                 width: 150,
-                height: 150,
+                height: 200,
               ),
             ],
           ),
@@ -205,7 +229,7 @@ class Basket extends StatelessWidget {
                   ),
                 ),
                 width: 150,
-                height: 150,
+                height: 200,
               ),
               SizedBox(
                 width: small,
@@ -219,9 +243,12 @@ class Basket extends StatelessWidget {
                   ),
                 ),
                 width: 150,
-                height: 150,
+                height: 200,
               ),
             ],
+          ),
+          SizedBox(
+            height: medium,
           )
         ]),
       ),

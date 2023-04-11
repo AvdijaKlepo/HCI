@@ -8,6 +8,9 @@ class TrendingCard extends StatelessWidget {
   final String author;
   final String pageCount;
   final String series;
+  final String rating;
+  final String nRatings;
+  final String nReviews;
   const TrendingCard(
       {required this.image,
       required this.name,
@@ -15,7 +18,10 @@ class TrendingCard extends StatelessWidget {
       required this.author,
       required this.pageCount,
       super.key,
-      required this.series});
+      required this.series,
+      required this.rating,
+      required this.nRatings,
+      required this.nReviews});
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +61,40 @@ class TrendingCard extends StatelessWidget {
                 Text(
                   author,
                   style: heading4,
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.star),
+                    Text(rating),
+                  ],
+                ),
+                SizedBox(
+                  height: xsmall,
+                ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.rate_review),
+                        Text(
+                          '$nRatings ocijena',
+                          style: p4,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: xsmall,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.reviews_rounded),
+                        Text(
+                          '$nReviews recenzija',
+                          style: p4,
+                        ),
+                      ],
+                    ),
+                  ],
                 )
               ],
             )
