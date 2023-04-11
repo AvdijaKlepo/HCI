@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
                 hintText: 'Naslov, autor ili ISBN',
+                hintStyle: p2,
                 prefixIcon: const Icon(Icons.search_outlined),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20.0),
@@ -48,8 +49,8 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 0),
               child: InkWell(
                 child: Label(text: 'Članci', style: heading1),
-                onTap: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => NewsList())),
+                onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const NewsList())),
               ),
             ),
             const Padding(
@@ -62,7 +63,7 @@ class HomePage extends StatelessWidget {
                 child: Label(text: 'Preporučeno', style: heading1),
               ),
               onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => BookList(
+                  builder: (context) => const BookList(
                         text: 'Knjige preporučene vašim pretraživanjima',
                       ))),
             ),
@@ -72,7 +73,7 @@ class HomePage extends StatelessWidget {
               child: InkWell(
                 child: Label(text: 'Popularno', style: heading1),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => BookList(
+                    builder: (context) => const BookList(
                           text: 'Knjige koje su trenutno popularne',
                         ))),
               ),

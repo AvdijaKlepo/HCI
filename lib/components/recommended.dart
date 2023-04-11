@@ -4,6 +4,8 @@ class RecBooks {
   final String price;
   final String author;
   final String pageCount;
+  final String series;
 
-  RecBooks(this.image, this.name, this.price, this.author, this.pageCount);
+  RecBooks(this.image, this.name, this.price, this.author, this.pageCount,
+      this.series);
 }

@@ -13,25 +13,29 @@ class RecommendedBooks extends StatelessWidget {
         'The Gunslinger',
         'In the first book of this series, Stephen King introduces readers to one of his most enigmatic heroes, Roland of Gilead, The Last Gunslinger.',
         'Stephen King',
-        '224'),
+        '224',
+        'The Dark Tower'),
     RecBooks(
         'assets/images/darktower2.jpg',
         'The Drawing of the Three',
         'While pursuing his quest for the Dark Tower through a world that is a nightmarishly distorted mirror image of our own, Roland, the last gunslinger, encounters three mysterious doorways on the beach. Each one enters into the life of a different person living in contemporary New York.',
         'Stephen King',
-        '400'),
+        '400',
+        'The Dark Tower'),
     RecBooks(
         'assets/images/darktower3.jpg',
         'The Wastelands',
         'Several months have passed, and Roland’s two new tet-mates have become proficient gunslingers. Eddie Dean has given up heroin, and Odetta’s two selves have joined, becoming the stronger and more balanced personality of Susannah Dean.',
         'Stephen King',
-        '640'),
+        '640',
+        'The Dark Tower'),
     RecBooks(
         'assets/images/darktower4.jpg',
         'Wizard and glass',
         'Roland, Eddie, Susannah, Jake, and Jake’s pet bumbler survive Blaine the Mono’s final crash, only to find themselves stranded in an alternate version of Topeka, Kansas, one that has been ravaged by the superflu virus. ',
         'Stephen King',
-        '787')
+        '787',
+        'The Dark Tower')
   ];
 
   @override
@@ -51,7 +55,8 @@ class RecommendedBooks extends StatelessWidget {
                     name: book.name,
                     price: book.price,
                     author: book.author,
-                    pageCount: book.pageCount),
+                    pageCount: book.pageCount,
+                    series: book.series),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => BookDetails(
                           image: book.image,
@@ -59,6 +64,7 @@ class RecommendedBooks extends StatelessWidget {
                           author: book.author,
                           price: book.price,
                           pageCount: book.pageCount,
+                          series: book.series,
                         ))),
               );
             },

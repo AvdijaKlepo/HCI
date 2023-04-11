@@ -103,7 +103,7 @@ class Settings extends StatelessWidget {
                 'Facebook',
                 style: heading2,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 200.0,
               ),
               Text(
@@ -119,12 +119,12 @@ class Settings extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => LoginPage())),
-              child: Text(
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const LoginPage())),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+              child: const Text(
                 'Odjava',
               ),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
             ),
           )
         ],

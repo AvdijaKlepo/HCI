@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hci/RegistracijaLogin/registration.dart';
+import 'package:hci/utils/style.dart';
 
 import '../HomePage/homepage.dart';
 
@@ -19,22 +20,30 @@ class LoginPage extends StatelessWidget {
                 height: 150,
                 child: Image.asset('assets/icons/logo.png'),
               ),
-              const Text('Dobrodošli u Pathfinder',
-                  style: TextStyle(fontSize: 20)),
-              const SizedBox(
+              Text('Dobrodošli u Pathfinder', style: pBoldW),
+              SizedBox(
+                height: xsmall,
+              ),
+              SizedBox(
                 width: 290,
                 child: TextField(
                   decoration: InputDecoration(
+                      hintStyle: p1,
                       border: OutlineInputBorder(),
                       labelText: 'Email',
                       isDense: true),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
+                height: xsmall,
+              ),
+              SizedBox(
                 width: 290,
                 child: TextField(
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Lozinka'),
+                      hintStyle: p2,
+                      border: OutlineInputBorder(),
+                      labelText: 'Lozinka'),
                   obscureText: true,
                 ),
               ),
@@ -50,16 +59,16 @@ class LoginPage extends StatelessWidget {
                               builder: ((context) => const HomePage()))),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.brown[600]),
-                      child: const Text('Login'),
+                      child: Text(
+                        'Login',
+                        style: p1,
+                      ),
                     ),
                   )
                 ],
               ),
               InkWell(
-                child: const Text(
-                  'Nemate račun? Registrirajte se',
-                  style: TextStyle(color: Colors.brown),
-                ),
+                child: Text('Nemate račun? Registrirajte se', style: p2),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const RegistrationPage())),
               ),

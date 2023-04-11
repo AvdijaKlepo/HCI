@@ -54,11 +54,12 @@ class Social extends StatelessWidget {
                                   width: 50,
                                 ),
                               ),
-                              Text('Avdija Klepo je zapratio Adema Drljevića.'),
+                              const Text(
+                                  'Avdija Klepo je zapratio Adema Drljevića.'),
                             ],
                           ),
                         ),
-                        Text('8 Lajkova | 8 Komentara'),
+                        const Text('8 Lajkova | 8 Komentara'),
                       ],
                     ),
                   ),
@@ -94,13 +95,13 @@ class Social extends StatelessWidget {
                                 width: 50,
                               ),
                             ),
-                            Text(
+                            const Text(
                                 'Avdija Klepo je ostavio komentar ispod rezencije.'),
                           ],
                         ),
-                        Text(
+                        const Text(
                             'Odlična recenzija Meho. Svaki dan postaješ efikasniji kritičar.'),
-                        Text('8 Lajkova | 8 Komentara')
+                        const Text('8 Lajkova | 8 Komentara')
                       ],
                     ),
                   ),
@@ -132,8 +133,8 @@ class Social extends StatelessWidget {
                               width: 50,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Expanded(
                                 child:
                                     Text('Avdija Klepo je ostavio recenziju')),
@@ -162,19 +163,19 @@ class Social extends StatelessWidget {
                               children: [
                                 const Text('The Gunslinger'),
                                 Row(
-                                  children: [
-                                    const Icon(Icons.star),
-                                    const Icon(Icons.star),
-                                    const Icon(Icons.star),
-                                    const Icon(Icons.star),
-                                    const Icon(Icons.star_border),
+                                  children: const [
+                                    Icon(Icons.star),
+                                    Icon(Icons.star),
+                                    Icon(Icons.star),
+                                    Icon(Icons.star),
+                                    Icon(Icons.star_border),
                                   ],
                                 ),
                                 const Text('Stephen King'),
                                 ElevatedButton(
                                   onPressed: () => Navigator.of(context).push(
                                       MaterialPageRoute(
-                                          builder: (context) => Read(
+                                          builder: (context) => const Read(
                                               image:
                                                   'assets/images/darktower1.jpg'))),
                                   style: ElevatedButton.styleFrom(
@@ -186,9 +187,9 @@ class Social extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 220.0),
-                        child: const Text('8 Lajkova | 8 Komentara'),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 220.0),
+                        child: Text('8 Lajkova | 8 Komentara'),
                       ),
                     ],
                   ),
@@ -207,8 +208,8 @@ class Social extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
                 icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomePage())),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage())),
                   icon: const Icon(Icons.home_rounded),
                 ),
                 label: 'Naslovna'),
