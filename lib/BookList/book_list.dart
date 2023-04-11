@@ -10,8 +10,11 @@ String price =
 String autor = 'Stephen King';
 String pageCount = '231';
 String series = 'The Dark Tower';
+// ignore: non_constant_identifier_names
 String Brating = '3,93';
+// ignore: non_constant_identifier_names
 String BnRating = '579,459';
+// ignore: non_constant_identifier_names
 String BnReviews = '22,869';
 
 class BookList extends StatelessWidget {

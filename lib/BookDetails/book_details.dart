@@ -130,11 +130,11 @@ class _BookDetailsState extends State<BookDetails> {
               padding: const EdgeInsets.only(left: 65.0),
               child: Row(
                 children: [
-                  Icon(Icons.star),
-                  Icon(Icons.star),
-                  Icon(Icons.star),
-                  Icon(Icons.star),
-                  Icon(Icons.star),
+                  const Icon(Icons.star),
+                  const Icon(Icons.star),
+                  const Icon(Icons.star),
+                  const Icon(Icons.star),
+                  const Icon(Icons.star),
                   Text(
                     ' | ${widget.rating}',
                     style: p2,

@@ -71,7 +71,7 @@ class RegistrationPage extends StatelessWidget {
                       SizedBox(
                         width: xsmall,
                       ),
-                      Text(
+                      const Text(
                         'Logirajte se',
                         style: TextStyle(decoration: TextDecoration.underline),
                       )

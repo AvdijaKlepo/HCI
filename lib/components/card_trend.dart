@@ -64,7 +64,7 @@ class TrendingCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.star),
+                    const Icon(Icons.star),
                     Text(rating),
                   ],
                 ),
@@ -75,7 +75,7 @@ class TrendingCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.rate_review),
+                        const Icon(Icons.rate_review),
                         Text(
                           '$nRatings ocijena',
                           style: p4,
@@ -87,7 +87,7 @@ class TrendingCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.reviews_rounded),
+                        const Icon(Icons.reviews_rounded),
                         Text(
                           '$nReviews recenzija',
                           style: p4,

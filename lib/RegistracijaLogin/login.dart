@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                       hintStyle: p1,
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       labelText: 'Email',
                       isDense: true),
                 ),
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                       hintStyle: p2,
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       labelText: 'Lozinka'),
                   obscureText: true,
                 ),
@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       width: xsmall,
                     ),
-                    Text(
+                    const Text(
                       'Registrirajte se',
                       style: TextStyle(decoration: TextDecoration.underline),
                     )
