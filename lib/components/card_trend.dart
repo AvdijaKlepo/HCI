@@ -6,11 +6,13 @@ class TrendingCard extends StatelessWidget {
   final String name;
   final String price;
   final String author;
+  final String pageCount;
   const TrendingCard(
       {required this.image,
       required this.name,
       required this.price,
       required this.author,
+      required this.pageCount,
       super.key});
 
   @override

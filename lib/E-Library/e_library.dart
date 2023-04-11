@@ -17,7 +17,7 @@ class ELibrary extends StatelessWidget {
         backgroundColor: Colors.orange[50],
         foregroundColor: black,
         title: Text(
-          'E-Library',
+          'Vlastita biblioteka',
           style: heading1,
         ),
       ),
@@ -91,6 +91,9 @@ class ELibrary extends StatelessWidget {
                       height: 250,
                       margin: EdgeInsets.only(right: medium),
                     ),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            const Read(image: 'assets/images/darktower3.jpg'))),
                   ),
                 ),
                 Padding(
@@ -117,17 +120,22 @@ class ELibrary extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: black,
-                      borderRadius: BorderRadius.circular(26),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/darktower2.jpg'),
-                          fit: BoxFit.cover),
+                  child: InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: black,
+                        borderRadius: BorderRadius.circular(26),
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/darktower2.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                      width: 200,
+                      height: 250,
+                      margin: EdgeInsets.only(right: medium),
                     ),
-                    width: 200,
-                    height: 250,
-                    margin: EdgeInsets.only(right: medium),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            const Read(image: 'assets/images/darktower2.jpg'))),
                   ),
                 ),
                 Padding(
@@ -154,17 +162,22 @@ class ELibrary extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: black,
-                      borderRadius: BorderRadius.circular(26),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/darktower4.jpg'),
-                          fit: BoxFit.cover),
+                  child: InkWell(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: black,
+                        borderRadius: BorderRadius.circular(26),
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/darktower4.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                      width: 200,
+                      height: 250,
+                      margin: EdgeInsets.only(right: medium),
                     ),
-                    width: 200,
-                    height: 250,
-                    margin: EdgeInsets.only(right: medium),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            const Read(image: 'assets/images/darktower4.jpg'))),
                   ),
                 ),
                 Padding(
@@ -185,38 +198,39 @@ class ELibrary extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.black,
           currentIndex: 1,
-          backgroundColor: Colors.orange[100],
           type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
                 icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomePage())),
                   icon: const Icon(Icons.home_rounded),
                 ),
-                label: 'Home'),
+                label: 'Naslovna'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.book_rounded),
+                  icon: const Icon(Icons.menu_book_outlined),
                 ),
-                label: 'Library'),
+                label: 'E-Biblioteka'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const Social())),
                   icon: const Icon(Icons.people_outline),
                 ),
-                label: 'Social'),
+                label: 'Mreža'),
             BottomNavigationBarItem(
                 icon: IconButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const Settings())),
                   icon: const Icon(Icons.settings_outlined),
                 ),
-                label: 'Settings'),
+                label: 'Postavke'),
           ]),
     );
   }
