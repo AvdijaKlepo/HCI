@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(bottom: 20.0),
+              padding: EdgeInsets.only(bottom: 0),
               child: News(),
             ),
             InkWell(
@@ -83,36 +83,57 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+          selectedLabelStyle: p2,
+          unselectedLabelStyle: p2,
           selectedItemColor: Colors.black,
           currentIndex: 0,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home_rounded),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.home_rounded),
+                  ),
                 ),
                 label: 'Naslovna'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.menu_book_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const ELibrary())),
+                    icon: const Icon(Icons.menu_book_outlined),
+                  ),
                 ),
                 label: 'E-Biblioteka'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Social())),
-                  icon: const Icon(Icons.people_outline),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Social())),
+                    icon: const Icon(Icons.people_outline),
+                  ),
                 ),
                 label: 'Mreža'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Settings())),
-                  icon: const Icon(Icons.settings_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Settings())),
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
                 label: 'Postavke'),
           ]),
@@ -135,13 +156,15 @@ class News extends StatelessWidget {
           child: InkWell(
             child: Expanded(
               child: Container(
-                height: double.infinity,
-                width: 150,
-                decoration: BoxDecoration(border: Border.all(width: 0.5)),
-                child: Image.asset(
-                  'assets/images/upcoming.jpg',
-                  fit: BoxFit.cover,
+                decoration: BoxDecoration(
+                  color: text,
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                      image: AssetImage('assets/images/upcoming.jpg'),
+                      fit: BoxFit.cover),
                 ),
+                height: 250,
+                width: 150,
               ),
             ),
             onTap: () => Navigator.of(context).push(

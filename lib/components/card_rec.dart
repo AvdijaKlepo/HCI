@@ -8,6 +8,9 @@ class RecommendedCard extends StatelessWidget {
   final String author;
   final String pageCount;
   final String series;
+  final String rating;
+  final String nRatings;
+  final String nReviews;
   const RecommendedCard(
       {required this.image,
       required this.name,
@@ -15,7 +18,10 @@ class RecommendedCard extends StatelessWidget {
       required this.author,
       required this.pageCount,
       super.key,
-      required this.series});
+      required this.series,
+      required this.rating,
+      required this.nRatings,
+      required this.nReviews});
 
   @override
   Widget build(BuildContext context) {

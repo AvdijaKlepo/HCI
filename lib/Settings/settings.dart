@@ -23,6 +23,28 @@ class Settings extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: text,
+                    borderRadius: BorderRadius.circular(100),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/n1.jpg'),
+                    ),
+                  ),
+                  height: 50,
+                  width: 50,
+                ),
+              ),
+              Text(
+                'Avdija Klepo',
+                style: p2,
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -42,19 +64,23 @@ class Settings extends StatelessWidget {
             endIndent: 20,
             color: black,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Korisničko ime: ',
-              style: p2,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'avdija.klepo@edu.fit.ba',
-              style: p2,
-            ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Korisničko ime: ',
+                  style: p2,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'avdija.klepo@edu.fit.ba',
+                  style: p2,
+                ),
+              ),
+            ],
           ),
           Row(
             children: [
@@ -122,8 +148,9 @@ class Settings extends StatelessWidget {
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const LoginPage())),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-              child: const Text(
+              child: Text(
                 'Odjava',
+                style: p1,
               ),
             ),
           )
@@ -137,31 +164,51 @@ class Settings extends StatelessWidget {
           backgroundColor: Colors.orange[100],
           items: [
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
-                  icon: const Icon(Icons.home_rounded),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
+                    icon: const Icon(Icons.home_rounded),
+                  ),
                 ),
                 label: 'Naslovna'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ELibrary())),
-                  icon: const Icon(Icons.menu_book_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const ELibrary())),
+                    icon: const Icon(Icons.menu_book_outlined),
+                  ),
                 ),
                 label: 'E-Biblioteka'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Social())),
-                  icon: const Icon(Icons.people_outline),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Social())),
+                    icon: const Icon(Icons.people_outline),
+                  ),
                 ),
                 label: 'Mreža'),
             BottomNavigationBarItem(
-                icon: IconButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Settings())),
-                  icon: const Icon(Icons.settings_outlined),
+                icon: SizedBox(
+                  height: 38,
+                  width: 38,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => const Settings())),
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
                 label: 'Postavke'),
           ]),

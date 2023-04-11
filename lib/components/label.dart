@@ -16,8 +16,8 @@ class Label extends StatelessWidget {
           style: heading1,
         ),
         Icon(
-          Icons.more_horiz,
-          color: icon,
+          Icons.arrow_forward_ios_outlined,
+          color: black,
           size: 28,
         )
       ],

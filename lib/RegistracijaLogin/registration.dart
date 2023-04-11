@@ -61,9 +61,21 @@ class RegistrationPage extends StatelessWidget {
                   child: const Text('Registriraj račun'),
                 ),
                 InkWell(
-                  child: Text(
-                    'Već imate račun? Logirajte se ovde',
-                    style: p2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Već imate račun?',
+                        style: p2,
+                      ),
+                      SizedBox(
+                        width: xsmall,
+                      ),
+                      Text(
+                        'Logirajte se',
+                        style: TextStyle(decoration: TextDecoration.underline),
+                      )
+                    ],
                   ),
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const LoginPage())),
