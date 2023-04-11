@@ -63,11 +63,11 @@ class _Basket2State extends State<Basket2> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
                 Text(
                   ' | ${widget.rating}',
                   style: p2,

@@ -144,7 +144,7 @@ class Social extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Expanded(
                                 child: Text(
                               'Avdija Klepo je ostavio recenziju',
@@ -211,7 +211,7 @@ class Social extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 220.0),
+                        padding: const EdgeInsets.only(right: 220.0),
                         child: Text(
                           '8 Lajkova | 2 Komentara',
                           style: p2,

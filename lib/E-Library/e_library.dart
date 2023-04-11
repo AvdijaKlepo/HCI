@@ -43,9 +43,9 @@ class ELibrary extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 25.0),
-                  child: const Icon(Icons.menu_book_rounded),
+                const Padding(
+                  padding: EdgeInsets.only(top: 25.0),
+                  child: Icon(Icons.menu_book_rounded),
                 ),
                 SizedBox(
                   width: xsmall,
@@ -137,7 +137,7 @@ class ELibrary extends StatelessWidget {
                       ),
                     ]),
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Read(
+                        builder: (context) => const Read(
                               image: 'assets/images/darktower3.jpg',
                               text: 'Pročitano',
                             ))),

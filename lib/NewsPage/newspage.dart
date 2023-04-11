@@ -26,14 +26,14 @@ class NewsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Text(
                 '23 Cozy Mystery Series for Your Next Whodunit Binge Read',
                 style: heading1,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Text(
                 'Posted by Avdija on March 24, 2023',
                 textAlign: TextAlign.left,
@@ -42,7 +42,7 @@ class NewsPage extends StatelessWidget {
             ),
             const Divider(thickness: 1),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Text(
                 '6 likes | 0 comments',
                 style: p2,
@@ -58,7 +58,7 @@ class NewsPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Text(
                 'Crime fiction has lots of interesting nooks and crannies. Youve got your traditional detective stories (invented by Edgar Allan Poe, most historians agree) and classic mystery stories that wander off into subtypes: historical mysteries, police procedurals, legal thrillers, heist stories. ',
                 style: p2,
@@ -68,7 +68,7 @@ class NewsPage extends StatelessWidget {
               height: xsmall,
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Text(
                 'The cozy mystery is a relatively recent term that refers to stories in which the violent and graphic elements are generally kept off-page. These gentle whodunits often come in series and center on unique and often eccentric investigators, like Mumbai police inspectors or 12-year-old chemists. One of the genuine advantages of the cozy mystery series is that if you find a book you like, you’ve instantly got a reading list of several more books. Several dozen, in some instances.',
                 style: p2,
@@ -78,7 +78,7 @@ class NewsPage extends StatelessWidget {
               height: xsmall,
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Text(
                 'In this specially curated collection, weve gathered 23 top cozy mystery series along with a quick description, the series first installment, and the total number of books in the series so far. Be aware that acquiring a cozy mystery habit can result in thousands of hours of reading pleasure. In fact, we did the math, and if you want to read every title in every series on this list, you’ll want to make time for more than 200 books in total.',
                 style: p2,
@@ -115,7 +115,7 @@ class NewsPage extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () =>
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => Read(
+                                builder: (context) => const Read(
                                       image:
                                           'assets/images/purloinedletter.jpg',
                                       text: 'Želim da čitam',
@@ -153,7 +153,7 @@ class NewsPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () =>
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Read(
+                              builder: (context) => const Read(
                                     image: 'assets/images/sherlock.jpg',
                                     text: 'Želim da čitam',
                                   ))),

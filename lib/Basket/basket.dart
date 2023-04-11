@@ -51,11 +51,11 @@ class Basket extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
                 Text(' | $rating'),
                 Text(' | $nRating'),
               ],
