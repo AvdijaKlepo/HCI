@@ -117,8 +117,9 @@ class RegistrationPage extends StatelessWidget {
                         ),
                         const Text(
                           'Logirajte se',
-                          style:
-                              TextStyle(decoration: TextDecoration.underline),
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.deepOrangeAccent),
                         )
                       ],
                     ),

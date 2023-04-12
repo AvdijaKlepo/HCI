@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hci/HomePage/homepage.dart';
 import 'package:hci/Reading/read.dart';
 import 'package:hci/Settings/settings.dart';
@@ -55,8 +56,17 @@ class Social extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                'Avdija Klepo je zapratio Adema Drljevića.',
+                                'Adem Drljević je zapratio Mehu Mustafića.',
                                 style: p2,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Text('Zaprati'),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
                               ),
                             ),
                           ],
@@ -98,7 +108,7 @@ class Social extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                'Avdija Klepo je ostavio komentar ispod rezencije.',
+                                'Adem Drljević je ostavio komentar ispod rezencije.',
                                 style: p2,
                               ),
                             ),
@@ -108,13 +118,39 @@ class Social extends StatelessWidget {
                           'Odlična recenzija Meho. Svaki dan postaješ efikasniji kritičar.',
                           style: p2,
                         ),
-                        Text(
-                          '8 Lajkova | 8 Komentara',
-                          style: p2,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '8 Lajkova | 8 Komentara',
+                              style: p2,
+                            ),
+                            SizedBox(
+                              height: 20,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Text('Zaprati'),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                              ),
+                            ),
+                          ],
                         )
                       ],
                     ),
                   ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 100.0),
+              child: SizedBox(
+                width: 290,
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintStyle: p2,
+                      border: const OutlineInputBorder(),
+                      labelText: 'Ostavi komentar'),
                 ),
               ),
             ),
@@ -147,7 +183,7 @@ class Social extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Expanded(
                                 child: Text(
-                              'Avdija Klepo je ostavio recenziju',
+                              'Adem Drljević je postavio recenziju',
                               style: p2,
                             )),
                           ),

@@ -196,41 +196,17 @@ class _BookDetailsBoughtState extends State<BookDetailsBought> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 115,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const BookSample())),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: Text(
-                      'Čitaj uzorak',
-                      style: p3,
-                    ),
-                  ),
+            SizedBox(
+              width: 115,
+              child: ElevatedButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const BookSample())),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                child: Text(
+                  'Čitaj knjigu',
+                  style: p3,
                 ),
-                SizedBox(
-                  width: medium,
-                ),
-                SizedBox(
-                  width: 115,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const BookSample())),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: Text(
-                      'Čitaj knjigu',
-                      style: p3,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
             SizedBox(
               height: xsmall,
