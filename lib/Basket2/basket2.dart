@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci/BookDetails/book_details_bought.dart';
 
 import '../utils/style.dart';
 
@@ -16,6 +17,7 @@ class Basket2 extends StatefulWidget {
   final String series;
   final String rating;
   final String nRating;
+  final String nReviews;
   // ignore: non_constant_identifier_names
   final String Buttontext;
   const Basket2(
@@ -29,7 +31,8 @@ class Basket2 extends StatefulWidget {
       required this.rating,
       required this.nRating,
       // ignore: non_constant_identifier_names
-      required this.Buttontext});
+      required this.Buttontext,
+      required this.nReviews});
 
   @override
   State<Basket2> createState() => _Basket2State();
@@ -177,7 +180,17 @@ class _Basket2State extends State<Basket2> {
             child: SizedBox(
               width: 150,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => BookDetailsBought(
+                        image: widget.image,
+                        name: widget.name,
+                        author: widget.author,
+                        price: widget.price,
+                        pageCount: widget.pageCount,
+                        series: widget.series,
+                        rating: widget.rating,
+                        nRatings: widget.nRating,
+                        nReviews: widget.nReviews))),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                 child: Text(
                   'Kupi Odmah',

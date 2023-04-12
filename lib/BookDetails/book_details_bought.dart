@@ -1,19 +1,21 @@
 import 'dart:ui';
-import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:hci/Basket/basket.dart';
-import 'package:hci/BookDetails/book_sample.dart';
 
-import 'package:hci/HomePage/homepage.dart';
-import 'package:hci/Reading/read.dart';
-import 'package:hci/utils/style.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import '../Basket/basket.dart';
 import '../E-Library/e_library.dart';
+import '../HomePage/homepage.dart';
+import '../Reading/read.dart';
 import '../Settings/settings.dart';
 import '../Social/social.dart';
+import '../utils/style.dart';
+import 'book_sample.dart';
 
-class BookDetails extends StatefulWidget {
+class BookDetailsBought extends StatefulWidget {
   final String image;
   final String name;
   final String author;
@@ -23,29 +25,23 @@ class BookDetails extends StatefulWidget {
   final String rating;
   final String nRatings;
   final String nReviews;
-
-  const BookDetails({
-    required this.image,
-    required this.name,
-    required this.author,
-    required this.price,
-    required this.pageCount,
-    required this.series,
-    required this.rating,
-    required this.nRatings,
-    required this.nReviews,
-    super.key,
-  });
+  const BookDetailsBought(
+      {super.key,
+      required this.image,
+      required this.name,
+      required this.author,
+      required this.price,
+      required this.pageCount,
+      required this.series,
+      required this.rating,
+      required this.nRatings,
+      required this.nReviews});
 
   @override
-  State<BookDetails> createState() => _BookDetailsState();
+  State<BookDetailsBought> createState() => _BookDetailsBoughtState();
 }
 
-class _BookDetailsState extends State<BookDetails> {
-  var rating = 0.0;
-  String? selectedValue;
-  final List<String> items = ['Želim čitati', 'Trenutno čitam', 'Pročitano'];
-
+class _BookDetailsBoughtState extends State<BookDetailsBought> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,7 +154,7 @@ class _BookDetailsState extends State<BookDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 160,
+                  width: 115,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.brown,
@@ -169,14 +165,14 @@ class _BookDetailsState extends State<BookDetails> {
                                   image: widget.image,
                                   text: 'Pročitano',
                                 ))),
-                    child: Text('Dodaj u biblioteku', style: p3),
+                    child: Text('Dodaj', style: p3),
                   ),
                 ),
                 SizedBox(
                   width: medium,
                 ),
                 SizedBox(
-                  width: 160,
+                  width: 115,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.brown,
@@ -202,17 +198,39 @@ class _BookDetailsState extends State<BookDetails> {
                 ),
               ],
             ),
-            SizedBox(
-              width: 115,
-              child: ElevatedButton(
-                onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => BookSample())),
-                child: Text(
-                  'Čitaj uzorak',
-                  style: p3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 115,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => BookSample())),
+                    child: Text(
+                      'Čitaj uzorak',
+                      style: p3,
+                    ),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                  ),
                 ),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-              ),
+                SizedBox(
+                  width: medium,
+                ),
+                SizedBox(
+                  width: 115,
+                  child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => BookSample())),
+                    child: Text(
+                      'Čitaj knjigu',
+                      style: p3,
+                    ),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: xsmall,
