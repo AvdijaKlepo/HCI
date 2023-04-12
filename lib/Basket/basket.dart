@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hci/Basket2/basket2.dart';
 import 'package:hci/utils/style.dart';
 
+String kindle = 'Kindle';
+String audioBook = 'Audiobook';
+String hardcover = 'Hardcover';
+String paperback = 'Paperback';
+
 class Basket extends StatelessWidget {
   final String image;
   final String name;
@@ -84,28 +89,33 @@ class Basket extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                  width: 100,
+                  width: 110,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Basket2(
-                                image: image,
-                                name: name,
-                                price: price,
-                                author: author,
-                                pageCount: pageCount,
-                                rating: rating,
-                                nRating: nRating,
-                                series: series))),
+                                  image: image,
+                                  name: name,
+                                  price: price,
+                                  author: author,
+                                  pageCount: pageCount,
+                                  rating: rating,
+                                  nRating: nRating,
+                                  series: series,
+                                  Buttontext: kindle,
+                                ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: const Text('Kindle'),
+                    child: Text(
+                      kindle,
+                      style: p1,
+                    ),
                   )),
               SizedBox(
                 width: small,
               ),
               SizedBox(
-                width: 100,
+                width: 110,
                 child: ElevatedButton(
                     onPressed: () =>
                         Navigator.of(context).push(MaterialPageRoute(
@@ -118,10 +128,14 @@ class Basket extends StatelessWidget {
                                   series: series,
                                   rating: rating,
                                   nRating: nRating,
+                                  Buttontext: audioBook,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: const Text('Audiobook')),
+                    child: Text(
+                      audioBook,
+                      style: p1,
+                    )),
               )
             ],
           ),
@@ -129,7 +143,7 @@ class Basket extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 100,
+                width: 110,
                 child: ElevatedButton(
                     onPressed: () =>
                         Navigator.of(context).push(MaterialPageRoute(
@@ -142,16 +156,20 @@ class Basket extends StatelessWidget {
                                   series: series,
                                   rating: rating,
                                   nRating: nRating,
+                                  Buttontext: hardcover,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: const Text('Hardcover')),
+                    child: Text(
+                      hardcover,
+                      style: p1,
+                    )),
               ),
               SizedBox(
                 width: small,
               ),
               SizedBox(
-                  width: 100,
+                  width: 110,
                   child: ElevatedButton(
                     onPressed: () =>
                         Navigator.of(context).push(MaterialPageRoute(
@@ -164,10 +182,14 @@ class Basket extends StatelessWidget {
                                   series: series,
                                   rating: rating,
                                   nRating: nRating,
+                                  Buttontext: paperback,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                    child: const Text('Paperback'),
+                    child: Text(
+                      paperback,
+                      style: p1,
+                    ),
                   )),
             ],
           ),

@@ -150,7 +150,7 @@ class News extends StatelessWidget {
       height: 200.0,
       width: 500,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 35, 10, 10),
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: SizedBox(
           width: 250,
           child: InkWell(
@@ -158,7 +158,7 @@ class News extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: text,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(0),
                   image: const DecorationImage(
                       image: AssetImage('assets/images/upcoming.jpg'),
                       fit: BoxFit.cover),

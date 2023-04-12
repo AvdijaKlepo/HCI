@@ -16,6 +16,8 @@ class Basket2 extends StatefulWidget {
   final String series;
   final String rating;
   final String nRating;
+  // ignore: non_constant_identifier_names
+  final String Buttontext;
   const Basket2(
       {super.key,
       required this.image,
@@ -25,7 +27,9 @@ class Basket2 extends StatefulWidget {
       required this.pageCount,
       required this.series,
       required this.rating,
-      required this.nRating});
+      required this.nRating,
+      // ignore: non_constant_identifier_names
+      required this.Buttontext});
 
   @override
   State<Basket2> createState() => _Basket2State();
@@ -89,19 +93,19 @@ class _Basket2State extends State<Basket2> {
           Center(
             child: Container(
               foregroundDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(26),
+                borderRadius: BorderRadius.circular(0),
                 image: DecorationImage(
                   image: AssetImage(widget.image),
                   fit: BoxFit.fill,
                 ),
               ),
               width: 300,
-              height: 300,
+              height: 350,
             ),
           ),
           Center(
               child: Text(
-            'Kindle',
+            widget.Buttontext,
             style: heading1,
           )),
           Divider(
@@ -110,33 +114,21 @@ class _Basket2State extends State<Basket2> {
             color: black,
           ),
           Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.only(left: 13.0),
             child: Text(
-              'Listna cijena: $listnaCijena\$ + Poštarina: $postarina\$',
+              'Listna cijena: $listnaCijena\$ \n Poštarina: $postarina\$',
               style: heading4,
             ),
           ),
-          Divider(
-            color: black,
-            indent: 15,
-            endIndent: 15,
-            thickness: 1,
-          ),
           Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.only(left: 13.0),
             child: Text(
               'Ukupno : $cijena\$',
               style: heading4,
             ),
           ),
-          Divider(
-            color: black,
-            indent: 15,
-            endIndent: 15,
-            thickness: 1,
-          ),
           Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.only(left: 13.0),
             child: Row(
               children: [
                 Text(
@@ -150,7 +142,14 @@ class _Basket2State extends State<Basket2> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(13.0),
+                padding: const EdgeInsets.only(left: 13.0),
+                child: Text(
+                  'Količina',
+                  style: heading4,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 13.0),
                 child: DropdownButton(
                     underline: Container(
                       height: 5,
@@ -171,32 +170,34 @@ class _Basket2State extends State<Basket2> {
                       });
                     }),
               ),
-              Text(
-                'Količina',
-                style: heading4,
-              ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.only(left: 150.0),
             child: SizedBox(
-              width: 130,
+              width: 150,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                child: const Text('Kupi Odmah'),
+                child: Text(
+                  'Kupi Odmah',
+                  style: p1,
+                ),
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 150.0),
             child: SizedBox(
-              width: 130,
+              width: 150,
               child: ElevatedButton(
                   onPressed: () {},
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                  child: const Text('Dodaj u košaru')),
+                  child: Text(
+                    'Dodaj u košaru',
+                    style: p1,
+                  )),
             ),
           ),
         ]),
