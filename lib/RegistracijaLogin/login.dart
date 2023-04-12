@@ -4,11 +4,30 @@ import 'package:hci/utils/style.dart';
 
 import '../HomePage/homepage.dart';
 
-class LoginPage extends StatelessWidget {
+bool isCheked = false;
+
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.brown;
+      }
+      return Colors.black26;
+    }
+
     return Scaffold(
         backgroundColor: Colors.orange[50],
         body: Center(
@@ -47,7 +66,27 @@ class LoginPage extends StatelessWidget {
                   obscureText: true,
                 ),
               ),
-              const Divider(),
+              Padding(
+                padding: const EdgeInsets.only(right: 45.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Zapamti me',
+                      style: p2,
+                    ),
+                    Checkbox(
+                      fillColor: MaterialStateProperty.resolveWith(getColor),
+                      value: isCheked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isCheked = value!;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

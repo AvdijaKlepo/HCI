@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
@@ -205,13 +203,14 @@ class _BookDetailsBoughtState extends State<BookDetailsBought> {
                   width: 115,
                   child: ElevatedButton(
                     onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => BookSample())),
+                        MaterialPageRoute(
+                            builder: (context) => const BookSample())),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                     child: Text(
                       'Čitaj uzorak',
                       style: p3,
                     ),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                   ),
                 ),
                 SizedBox(
@@ -221,13 +220,14 @@ class _BookDetailsBoughtState extends State<BookDetailsBought> {
                   width: 115,
                   child: ElevatedButton(
                     onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => BookSample())),
+                        MaterialPageRoute(
+                            builder: (context) => const BookSample())),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                     child: Text(
                       'Čitaj knjigu',
                       style: p3,
                     ),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                   ),
                 ),
               ],

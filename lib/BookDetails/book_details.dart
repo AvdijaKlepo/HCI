@@ -167,7 +167,7 @@ class _BookDetailsState extends State<BookDetails> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Read(
                                   image: widget.image,
-                                  text: 'Pročitano',
+                                  text: 'Želim da čitam',
                                 ))),
                     child: Text('Dodaj u biblioteku', style: p3),
                   ),
@@ -205,13 +205,13 @@ class _BookDetailsState extends State<BookDetails> {
             SizedBox(
               width: 115,
               child: ElevatedButton(
-                onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => BookSample())),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const BookSample())),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                 child: Text(
                   'Čitaj uzorak',
                   style: p3,
                 ),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
               ),
             ),
             SizedBox(
