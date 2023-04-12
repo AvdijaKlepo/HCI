@@ -16,6 +16,7 @@ class Basket extends StatelessWidget {
   final String series;
   final String rating;
   final String nRating;
+  final String nReviews;
   const Basket(
       {super.key,
       required this.image,
@@ -25,7 +26,8 @@ class Basket extends StatelessWidget {
       required this.pageCount,
       required this.series,
       required this.rating,
-      required this.nRating});
+      required this.nRating,
+      required this.nReviews});
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +105,7 @@ class Basket extends StatelessWidget {
                                   nRating: nRating,
                                   series: series,
                                   Buttontext: kindle,
+                                  nReviews: nReviews,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
@@ -129,6 +132,7 @@ class Basket extends StatelessWidget {
                                   rating: rating,
                                   nRating: nRating,
                                   Buttontext: audioBook,
+                                  nReviews: nReviews,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
@@ -157,6 +161,7 @@ class Basket extends StatelessWidget {
                                   rating: rating,
                                   nRating: nRating,
                                   Buttontext: hardcover,
+                                  nReviews: nReviews,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
@@ -183,6 +188,7 @@ class Basket extends StatelessWidget {
                                   rating: rating,
                                   nRating: nRating,
                                   Buttontext: paperback,
+                                  nReviews: nReviews,
                                 ))),
                     style:
                         ElevatedButton.styleFrom(backgroundColor: Colors.brown),
