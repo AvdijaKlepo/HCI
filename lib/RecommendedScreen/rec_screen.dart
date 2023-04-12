@@ -182,13 +182,13 @@ class RecommendedScreen extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HomePage())),
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage())),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
               child: Text(
                 'Preskoči',
                 style: p1,
               ),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
             )
           ],
         ),
