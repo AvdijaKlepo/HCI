@@ -115,9 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       width: xsmall,
                     ),
-                    const Text(
+                    Text(
                       'Registrirajte se',
-                      style: TextStyle(decoration: TextDecoration.underline),
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.deepOrangeAccent),
                     )
                   ],
                 ),

@@ -97,6 +97,72 @@ class Settings extends StatelessWidget {
               ),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+              child: Text(
+                "Promijeni lozinku",
+                style: p1,
+              ),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        scrollable: true,
+                        title: Text(
+                          'Promijena lozinke',
+                          style: p2,
+                        ),
+                        content: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Form(
+                            child: Column(
+                              children: <Widget>[
+                                TextFormField(
+                                  style: p2,
+                                  decoration: InputDecoration(
+                                    labelText: 'Nova Lozinka',
+                                    icon: Icon(Icons.password),
+                                  ),
+                                ),
+                                TextFormField(
+                                  style: p2,
+                                  decoration: InputDecoration(
+                                    labelText: 'Potvrdi novu lozinku',
+                                    icon: Icon(Icons.password),
+                                  ),
+                                ),
+                                TextFormField(
+                                  style: p2,
+                                  decoration: InputDecoration(
+                                    labelText: 'Stara lozinka',
+                                    icon: Icon(Icons.password),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        actions: [
+                          ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.brown),
+                              child: Text(
+                                "Promijeni",
+                                style: p1,
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                // your code
+                              })
+                        ],
+                      );
+                    });
+              },
+            ),
+          ),
           Divider(
             indent: 20,
             endIndent: 20,
@@ -143,17 +209,69 @@ class Settings extends StatelessWidget {
             endIndent: 20,
             color: black,
           ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const LoginPage())),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-              child: Text(
-                'Odjava',
-                style: p1,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const LoginPage())),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                child: Text(
+                  'Odjava',
+                  style: p1,
+                ),
               ),
-            ),
-          )
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                child: Text(
+                  "Tehnička podrška",
+                  style: p1,
+                ),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          scrollable: true,
+                          title: Text(
+                            'Opišite problem i naši operateri će biti sa vama uskoro',
+                            style: p2,
+                          ),
+                          content: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Form(
+                              child: Column(
+                                children: <Widget>[
+                                  TextFormField(
+                                    style: p2,
+                                    decoration: InputDecoration(
+                                      labelText: 'Opis problema',
+                                      icon: Icon(Icons.help_center),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          actions: [
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                                child: Text(
+                                  "Pošalji zahtjev",
+                                  style: p1,
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                  // your code
+                                })
+                          ],
+                        );
+                      });
+                },
+              ),
+            ],
+          ),
         ],
       ),
       backgroundColor: Colors.orange[50],

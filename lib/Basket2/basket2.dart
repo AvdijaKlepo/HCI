@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hci/BookDetails/book_details_bought.dart';
+import 'package:hci/BookList/book_list.dart';
 
 import '../utils/style.dart';
 
@@ -176,41 +177,85 @@ class _Basket2State extends State<Basket2> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 150.0),
-            child: SizedBox(
-              width: 150,
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
               child: ElevatedButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => BookDetailsBought(
-                        image: widget.image,
-                        name: widget.name,
-                        author: widget.author,
-                        price: widget.price,
-                        pageCount: widget.pageCount,
-                        series: widget.series,
-                        rating: widget.rating,
-                        nRatings: widget.nRating,
-                        nReviews: widget.nReviews))),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.brown),
                 child: Text(
-                  'Kupi Odmah',
+                  "Kupi",
                   style: p1,
                 ),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          scrollable: true,
+                          title: Text(
+                            'Checkout',
+                            style: p2,
+                          ),
+                          content: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Form(
+                              child: Column(
+                                children: <Widget>[
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Ime i prezime',
+                                      icon: Icon(Icons.person),
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Broj Kartice',
+                                      icon: Icon(Icons.credit_card),
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Datum isteka',
+                                      icon: Icon(Icons.date_range),
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'CVC',
+                                      icon: Icon(Icons.code),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          actions: [
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.brown),
+                                child: Text(
+                                  "Kupi",
+                                  style: p1,
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => BookDetailsBought(
+                                            author: autor,
+                                            image: image,
+                                            name: name,
+                                            price: price,
+                                            nReviews: widget.nReviews,
+                                            nRatings: widget.nRating,
+                                            pageCount: widget.pageCount,
+                                            rating: widget.rating,
+                                            series: widget.series,
+                                          )));
+                                  // your code
+                                })
+                          ],
+                        );
+                      });
+                },
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 150.0),
-            child: SizedBox(
-              width: 150,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.brown),
-                  child: Text(
-                    'Dodaj u košaru',
-                    style: p1,
-                  )),
             ),
           ),
         ]),
