@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:hci/Basket/basket.dart';
 import 'package:hci/BookDetails/book_sample.dart';
@@ -264,6 +265,15 @@ class _BookDetailsState extends State<BookDetails> {
                     color: Colors.black,
                   ),
                   onRatingUpdate: (rating) {},
+                ),
+                SizedBox(
+                  width: 370,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintStyle: p2,
+                        border: const OutlineInputBorder(),
+                        labelText: 'Ostavi recenziju'),
+                  ),
                 ),
               ],
             ),
