@@ -4,7 +4,12 @@ import 'package:hci/utils/style.dart';
 class Read extends StatelessWidget {
   final String image;
   final String text;
-  const Read({required this.image, super.key, required this.text});
+
+  const Read({
+    required this.image,
+    super.key,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {

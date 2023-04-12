@@ -33,6 +33,8 @@ TextStyle p3 = GoogleFonts.poppins(
     color: Colors.orange[50], fontSize: 14, fontWeight: FontWeight.w400);
 TextStyle p4 = GoogleFonts.poppins(
     color: black, fontSize: 10, fontWeight: FontWeight.w400);
+TextStyle p5 = GoogleFonts.poppins(
+    color: black, fontSize: 12, fontWeight: FontWeight.w400);
 
 TextStyle pPrice = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w600, color: white);
