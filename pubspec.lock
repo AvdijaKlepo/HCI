@@ -41,7 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-<<<<<<< HEAD
   crypto:
     dependency: transitive
     description:
@@ -50,8 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-=======
->>>>>>> main
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -118,7 +115,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   google_fonts:
     dependency: "direct main"
     description:
@@ -143,8 +139,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
-=======
->>>>>>> main
   js:
     dependency: transitive
     description:
@@ -326,7 +320,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
-<<<<<<< HEAD
   typed_data:
     dependency: transitive
     description:
@@ -335,8 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
-=======
->>>>>>> main
   vector_math:
     dependency: transitive
     description:
@@ -345,15 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-<<<<<<< HEAD
   win32:
     dependency: transitive
     description:
       name: win32
-      sha256: c9ebe7ee4ab0c2194e65d3a07d8c54c5d00bb001b76081c4a04cdb8448b59e46
+      sha256: a6f0236dbda0f63aa9a25ad1ff9a9d8a4eaaa5012da0dc59d21afdb1dc361ca4
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.3"
+    version: "3.1.4"
   xdg_directories:
     dependency: transitive
     description:
@@ -362,8 +352,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-=======
->>>>>>> main
 sdks:
   dart: ">=2.18.5 <3.0.0"
   flutter: ">=3.0.0"
